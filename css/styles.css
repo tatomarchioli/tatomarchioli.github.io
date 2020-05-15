@@ -1,0 +1,69 @@
+:root {
+    --color-primary: #2a9d8f;
+    --color-primary-dark: #264653;
+    --color-accent: #f4a261;
+    --color-accent-dark: #e76f51;
+    --color-background: #eae2b7;
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 8rem;
+    background-color: var(--color-background);
+}
+
+.me {
+    padding: 5rem 2rem;
+    display: grid;
+    align-content: start;
+    height: 100%;
+    justify-self: start;
+    align-self: start;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 2rem 0 0 0 var(--color-primary),
+    4rem 0rem 0 0 var(--color-primary-dark),
+    6rem 0rem 0 0 var(--color-accent),
+    8rem 0rem 0 0 var(--color-accent-dark);
+}
+
+.me img{
+    max-width: 20rem;
+    border-radius: 50%;
+}
+
+.content {
+    justify-self: center;
+}
+
+.title{
+    margin-bottom: .5rem;
+}
+
+.title .name{
+
+}
+
+.title .surname{
+
+}
+
+.subtitle{
+    margin-top: 0;
+}
+
+
+h1, h2, p {
+}
+
+
+a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+}

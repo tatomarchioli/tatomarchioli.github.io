@@ -6,19 +6,19 @@
     padding: 0;
 }
 
-ul{
-    padding-inline-start: 40px;
-}
-
-
 /* vars */
 
 :root {
     --color-primary: #2a9d8f;
+    --color-primary-light: #39d4c1;
     --color-primary-dark: #264653;
     --color-accent: #f4a261;
     --color-accent-dark: #e76f51;
     --color-background: #eae2b7;
+    --instagram-1: #0041e3;
+    --instagram-2: #f5359a;
+    --instagram-3: #ff5e1a;
+    --instagram-4: #fec84a;
   }
 
 /* box-model */
@@ -28,24 +28,26 @@ body{
     font-size: 16px;
     height: 100vh;
     display: grid;
-    grid-template-columns: calc(20% + 8rem) 1fr;
+    grid-template-columns: .3fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 'me content' 'me footer';
     background-color: var(--color-background);
 }
 
 
 .me {
+    grid-area: me;
     padding: 5rem 2rem;
     display: grid;
     align-content: start;
     height: 100%;
     justify-self: start;
     align-self: start;
-    margin-right: 8rem;
     background-color: white;
-    box-shadow: 2rem 0 0 0 var(--color-primary),
-    4rem 0rem 0 0 var(--color-primary-dark),
-    6rem 0rem 0 0 var(--color-accent),
-    8rem 0rem 0 0 var(--color-accent-dark);
+}
+.me span{
+    display: block;
+    width: 100%;
 }
 
 .me img {
@@ -54,10 +56,10 @@ body{
 }
 
 .content {
+    grid-area: content;
     justify-self: center;
     display: grid;
-    grid-row-gap: 1rem;
-    padding: 2rem;
+    align-content: start;
 }
 
 /*texts*/
@@ -72,6 +74,7 @@ body{
 
 h3 {
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 a {
@@ -88,29 +91,69 @@ a:hover {
     font-weight: bold;
 }
 
+/* sections */
+section, footer{
+    padding: 1rem;
+    border-style: solid;
+    border-width: 0 0 0 1rem;
+    max-width: 100%;
+}
+
 /* skills */
+.skills-sec{
+    display: grid;
+    border-color: var(--color-primary);
+}
+
+.skills-sec li{
+    list-style: none;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
 .skills-sec h3, .skills-sec .emphasis {
     color: var(--color-primary);
 }
 
+.percent {
+    background-color: var(--color-primary);
+    width: 100%;
+    height: .4rem;
+    border-radius: 3px;
+}
+
+.percent::before{
+    content: ' ';
+    background-color: var(--color-primary-light);
+    height: .4rem;
+    border-radius: 3px;
+    display: block;
+}
+
+.percent-100::before {
+    width: 100%;
+}
+
+.percent-90::before {
+    width: 90%;
+}
+
+.percent-80::before {
+    width: 80%;
+}
+
+.percent-70::before {
+    width: 70%;
+}
 
 /* timeline */
 .tl-sec {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.tl-sec > * {
-    grid-column: 1/1;
+    border-color: var(--color-primary-dark);
 }
 
 .tl-sec h3 {
     color: var(--color-primary-dark);
-}
-
-.tl-ul {
-    padding: 0;
-    list-style: none;
 }
 
 .tl-ul .tl-item, .tl-ul .tl-date {
@@ -146,4 +189,87 @@ a:hover {
 .tl-ul .tl-item .tl-text {
     grid-column: 2/2;
     padding-bottom: 1.5rem;
+}
+
+/*links*/
+.links-sec{
+    border-color: var(--color-accent);
+    display: grid;
+}
+
+.links-sec h3 {
+    color: var(--color-accent);
+}
+
+.links-sec .links{
+    display: grid;
+    grid-template-columns: auto auto auto auto 1fr;
+    grid-column-gap: 1.5rem;
+}
+
+.links i {
+    font-size: 2.5rem;
+}
+.links .linkedin{
+    color: #0077b5;
+}
+
+.links .twitter{
+    color: #1da1f1;
+}
+
+.links .instagram{
+    background: -webkit-linear-gradient(var(--instagram-1), var(--instagram-2), var(--instagram-3), var(--instagram-4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*footer*/
+footer{
+    height: 4rem;
+    padding: 1rem;
+    color: var(--color-accent-dark);
+    grid-area: footer;
+    font-weight: bold;
+    border-color: var(--color-accent-dark);
+}
+
+/*responsive*/
+
+/*mobile*/
+@media screen and (max-width: 800px) {
+    body{
+        grid-template-columns: 1fr;
+        grid-template-areas: 'me' 'content' 'footer';
+    }
+
+    .me {
+        grid-template-columns: .5fr 1fr;
+        box-shadow: none;
+        margin-right: 0;
+        padding: 2rem;
+        align-items: center;
+    }
+
+}
+
+/*sm*/
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+    section{
+        max-width: 100%;
+    }
+}
+
+/*md*/
+@media screen and (min-width: 1001px) and (max-width: 1366px) {
+    section{
+        max-width: 80%;
+    }
+}
+
+/*lg*/
+@media screen and (min-width: 1367px) {
+    section{
+        max-width: 50%;
+    }
 }
